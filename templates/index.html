@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Proxy List</title>
+		<style>
+		 .a-table {
+			 border: solid 1px #DDEEEE;
+			 border-collapse: collapse;
+			 border-spacing: 0;
+			 font: normal 13px Arial, sans-serif;
+			 text-align: center;
+			 width: 100%;
+		 }
+		 .a-table thead th {
+			 text-align: center;
+			 background-color: #DDEFEF;
+			 border: solid 1px #DDEEEE;
+			 color: #336B6B;
+			 padding: 10px;
+			 text-align: left;
+			 text-shadow: 1px 1px 1px #fff;
+		 }
+		 .a-table tbody td {
+			 text-align: center;
+			 border: solid 1px #DDEEEE;
+			 color: #333;
+			 padding: 10px;
+			 text-shadow: 1px 1px 1px #fff;
+		 }
+		</style>
+	</head>
+	<body>
+		<h1 style="text-align:center">Proxy List</h1>
+		<h3>Q::So what is this?</h3>
+		<p>Are you blind? It clearly states: "Proxy List". Anyway, just kidding, this is a public proxy list that is fetched from various sources. And guranteed to work.</p>
+		<p>
+			Here are the current parameters for this:<br>
+			<b>Countries:</b> All<br>
+			<b>Types:</b> HTTP, HTTPS, SOCKS4, SOCKS5<br>
+			<b>Anonymity (HTTP Only):</b> High, Anonymous, Transparent<br>
+			<b>Sites Tested On:</b> <a href="https://google.com">https://google.com</a>, <a href="https://en.wikipedia.org">https://en.wikipedia.org</a><br>
+			<b>Current Server Date/Time:</b> {{ current_time }}<br>
+			<b>Server Timezone:</b> {{ tzname }}<br>
+		</p>
+		<h3>Q::I need an API!!!!!!!!!!!</h3>
+		<p>Work in progress. Meanwhile, just scrape this site.</p>
+		<hr>
+		<table class="a-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Type</th>
+					<th>Host</th>
+					<th>Port</th>
+					<th>Average Response Time</th>
+					<th>Country Code</th>
+					<th>Country Name</th>
+					<th>Is Working?</th>
+					<th>Anonymity (HTTP Only)</th>
+					<th>Fetched At (Local Time)</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in index_list %}
+				<tr>
+					<td>{{ loop.index }}</td>
+					<td>{{ i.type }}</td>
+					<td>{{ i.host }}</td>
+					<td>{{ i.port }}</td>
+					<td>{{ i.avg_resp_time }}</td>
+					<td>{{ i.country_code }}</td>
+					<td>{{ i.country_name }}</td>
+					<td>{{ i.is_working }}</td>
+					<td>{{ i.anonymity }}</td>
+					<td>{{ i.fetched_at }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</body>
+</html>
