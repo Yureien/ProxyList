@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 
 class ListMaker:
     def __init__(
-            self, limit=40, max_resp_time=1.0, countries=None, max_list_length=500,
+            self, limit=40, max_resp_time=2.0, countries=None, max_list_length=500,
             anonymity=None, types=['HTTP', 'HTTPS', 'SOCKS4', 'SOCKS5'],
             test_sites=['https://google.com', 'https://en.wikipedia.org', 'https://nhentai.net']):
         try:
